@@ -20,8 +20,11 @@ func (r *GormCoursesRepo) Create(course *models.Course) (*models.Course, error) 
 	return course, tx.Error
 }
 
-func (r *GormCoursesRepo) Get() {
+func (r *GormCoursesRepo) Get(id int) (*models.Course, error) {
+	course := &models.Course{}
+	tx := r.db.First(course, id)
 
+	return course, tx.Error
 }
 
 func (r *GormCoursesRepo) Update() {}
