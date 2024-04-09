@@ -27,12 +27,15 @@ func (r *GormCoursesRepo) Get(id int) (*models.Course, error) {
 	return course, tx.Error
 }
 
-func (r *GormCoursesRepo) Update(id int) {
+func (r *GormCoursesRepo) Update(UpdCourse *models.Course, id int) error {
+	tx := r.db.Model(UpdCourse).Where(id).Updates(UpdCourse)
+
+	return tx.Error
 }
 
-func (r *GormCoursesRepo) Delete(id int) (*models.Course, error) {
+func (r *GormCoursesRepo) Delete(id int) error {
 	course := &models.Course{}
 	tx := r.db.Delete(course, id)
 
-	return course, tx.Error
+	return tx.Error
 }
