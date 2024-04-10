@@ -12,8 +12,10 @@ func main() {
 
 	repository := repo.NewGormCoursesRepo(db)
 
-	c := repository.Delete(3)
+	// c, err := repository.Create(&models.Course{Name: "Vasya", Author: "ls;dgh"})
 
-	fmt.Println(c)
+	c, err := repository.GetList(5)
+
+	fmt.Println(c, err)
 
 }
