@@ -27,8 +27,8 @@ func (r *GormCoursesRepo) Get(id int) (*models.Course, error) {
 	return course, tx.Error
 }
 
-func (r *GormCoursesRepo) Update(UpdCourse *models.Course, id int) error {
-	tx := r.db.Model(UpdCourse).Where(id).Updates(UpdCourse)
+func (r *GormCoursesRepo) Update(course *models.Course, id int) error {
+	tx := r.db.Model(course).Where(id).Updates(course)
 
 	return tx.Error
 }

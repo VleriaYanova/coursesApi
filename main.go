@@ -2,7 +2,6 @@ package main
 
 import (
 	"coursesApi/db"
-	"coursesApi/models"
 	"coursesApi/repo"
 	"fmt"
 	// "time"
@@ -13,7 +12,7 @@ func main() {
 
 	repository := repo.NewGormCoursesRepo(db)
 
-	c := repository.Update(&models.Course{Author: "AAAA"}, 1)
+	c := repository.Delete(3)
 
 	fmt.Println(c)
 
