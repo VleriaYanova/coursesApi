@@ -16,6 +16,6 @@ func NewGormDb() *gorm.DB {
 	}
 
 	db.AutoMigrate(&models.Course{})
-
+	db.Table("teeest1").AutoMigrate(&models.Course{})
 	return db
 }

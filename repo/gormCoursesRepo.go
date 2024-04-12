@@ -2,6 +2,7 @@ package repo
 
 import (
 	"coursesApi/models"
+	"fmt"
 
 	"gorm.io/gorm"
 )
@@ -23,7 +24,8 @@ func (r *GormCoursesRepo) Create(course *models.Course) (*models.Course, error) 
 func (r *GormCoursesRepo) Get(id int) (*models.Course, error) {
 	course := &models.Course{}
 	tx := r.db.First(course, id)
-
+	f := r.db.Table("teeest1").Find(course)
+	fmt.Println(f)
 	return course, tx.Error
 }
 
