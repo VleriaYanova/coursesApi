@@ -40,9 +40,9 @@ func (r *GormCoursesRepo) Delete(id int) error {
 	return tx.Error
 }
 
-func (r *GormCoursesRepo) GetList(limit int) (*[]models.Course, error) {
+func (r *GormCoursesRepo) GetList(limit int, offset int) (*[]models.Course, error) {
 	courses := &[]models.Course{}
-	tx := r.db.Limit(limit).Offset(-1).Find(courses)
+	tx := r.db.Limit(limit).Offset(offset).Find(courses)
 
 	return courses, tx.Error
 }
